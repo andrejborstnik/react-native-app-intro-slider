@@ -113,12 +113,13 @@ export default class AppIntroSlider extends React.Component {
         <View style={styles.paginationDots}>
           {!this.props.bottomButton && skipBtn}
           {this.props.slides.length > 1 && this.props.slides.map((_, i) => (
-            <View
+            <TouchableOpacity
               key={i}
               style={[
                 styles.dot,
                 i === this.state.activeIndex ? this.props.activeDotStyle : this.props.dotStyle,
               ]}
+              onPress={() => this.goToSlide(i)}
             />
           ))}
           {!this.props.bottomButton && btn}
